@@ -1,0 +1,19 @@
+%li.recent_post
+  %h3.entry-title
+    = link_to homepage_post.title, user_post_path(homepage_post.user, homepage_post), :rel => 'bookmark'
+  .post_info
+    %em
+      Author: 
+      =link_to homepage_post.user.login, user_path(homepage_post.user)
+    %em
+      Published On: 
+      %a{:href=>"#{user_post_path(homepage_post.user, homepage_post)}", :rel=>"bookmark"}
+      %abbr.published{:title=>"#{homepage_post.published_at}"}= homepage_post.published_at_display("%m-%d-%Y")
+    .small
+      = :views.l
+      = "(#{homepage_post.view_count})"
+      = link_to :comments.l+" (#{homepage_post.comments.count})", user_post_path(homepage_post.user, homepage_post)+'#comments'      
+  .entry-post
+    = truncate_words(homepage_post.post, 30, '...' )
+  %h6=link_to :read_more.l, user_post_path(homepage_post.user, homepage_post), :rel=> 'bookmark'
+  = render :partial => 'polls/excerpt', :locals => {:poll => homepage_post.poll} if homepage_post.poll

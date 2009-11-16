@@ -1,0 +1,57 @@
+- @meta = { :description => AppConfig.meta_description, :keywords => AppConfig.meta_keywords, :robots => AppConfig.robots_meta_list_content }
+
+#explore
+  =render :partial => 'shared/explore'
+
+-unless logged_in?
+  =render :partial => 'base/homepage_banner_message'
+
+#yui-main
+  .yui-b.border_right
+    -box :class => "hfeed" do 
+      %h2
+        =:recent_posts.l
+      .recent_posts
+        %ul
+          = render :partial => 'posts/homepage_post', :collection => @posts
+      %h6.all= link_to :see_all_recent_posts.l, recent_path
+    -box :class => "alt" do 
+      %h2
+        Meet Our Featured Writers
+      -@featured_writers.each do |user|    
+        =render :partial => "users/featured_writer", :locals => {:user => user}
+      .clear
+.yui-b  
+  -box :class => "alt" do 
+    %h2
+      = :whats_hot.l
+      
+    %ul.list.page
+      -@popular_posts.each do |post|
+        =render :partial => 'posts/sidebar_post', :locals => {:post => post}
+    %h6.all
+      %a{:href=>popular_url}= :see_all.l
+
+
+  -box :class => "alt" do 
+    %h2
+      = :active_users.l
+    -@active_users.each do |user|    
+      =render :partial => "users/sidebar_user", :locals => {:user => user}      
+
+:javascript
+  $(function(){
+    $('user-menu').hide();
+    $('#user_login').hover(
+      function(){
+        $('#user-menu').show(
+          'blind'
+        );
+      },
+      function(){
+        $('#user-menu').hide(
+          'blind'
+        );
+      }
+    );
+  });

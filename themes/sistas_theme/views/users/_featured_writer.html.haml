@@ -1,0 +1,8 @@
+.featured_writer
+  .writer_avatar
+    = link_to image_tag(user.avatar_photo_url, :alt => "#{user.login}", :width => '100', :height => '100'), user_path(user)
+  .writer_description
+    %h3
+      =link_to user.login, user_path(user), :class => 'url'
+    - if user.description
+      =truncate_words( user.description, 30, '...')
