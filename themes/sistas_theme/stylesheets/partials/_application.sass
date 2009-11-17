@@ -1,3 +1,6 @@
+!border_grey = #B1B1B1
+!link_grey = #5B5B5B
+
 //html elements
 body
   background: #000 url("/images/stripe_bgd.png") 
@@ -49,20 +52,38 @@ ul
 #explore
   :text-align center
   :font-size 115%
-  :font-weight bold
-  ul 
+  ul
+    :background #fff url("../images/button_bar_bgd.png") repeat-x
     :display inline-block
+    :height 30px
     :margin 0px
+    :-moz-border-radius 5px
+    :-webkit-border-radius 5px
+    :border 1px solid 
+      :color = !border_grey
     li 
       :float left
       :list-style-type none
       :padding 0px 4px 0px 4px
+      :border
+        :left 1px solid 
+          :color = !border_grey
+      :height 30px
       a 
+        :display inline-block
+        :padding 8px 20px 0px 20px
         :text-decoration none
+        :color = !link_grey
+      a:hover
+        :color = !border_grey
+    li.title
+      :padding 8px 5px 0px 5px
+      :border none
+
 #bd
   :margin 30px 0px 10px 0px
   :padding 0px 0px 10px 0px
-  :background-color #F6F6F6 
+  :background-color #FFF 
   :-moz-border-radius 5px
   :-webkit-border-radius 5px
 

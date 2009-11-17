@@ -135,12 +135,14 @@ ul { padding: 0px; }
 #NavBar ul li { float: left; list-style-type: none; padding: 0px 4px 0px 4px; }
 #NavBar ul li a { color: #FFFFFF; text-decoration: none; padding: 0px 30px; }
 
-#explore { text-align: center; font-size: 115%; font-weight: bold; }
-#explore ul { display: inline-block; margin: 0px; }
-#explore ul li { float: left; list-style-type: none; padding: 0px 4px 0px 4px; }
-#explore ul li a { text-decoration: none; }
+#explore { text-align: center; font-size: 115%; }
+#explore ul { background: #fff url("../images/button_bar_bgd.png") repeat-x; display: inline-block; height: 30px; margin: 0px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid; border-color: #b1b1b1; }
+#explore ul li { float: left; list-style-type: none; padding: 0px 4px 0px 4px; border-left: 1px solid; border-left-color: #b1b1b1; height: 30px; }
+#explore ul li a { display: inline-block; padding: 8px 20px 0px 20px; text-decoration: none; color: #5b5b5b; }
+#explore ul li a:hover { color: #b1b1b1; }
+#explore ul li.title { padding: 8px 5px 0px 5px; border: none; }
 
-#bd { margin: 30px 0px 10px 0px; padding: 0px 0px 10px 0px; background-color: #F6F6F6; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+#bd { margin: 30px 0px 10px 0px; padding: 0px 0px 10px 0px; background-color: #FFF; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
 
 .featured_writer { width: 50%; float: left; }
 .featured_writer .writer_avatar { width: 100px; float: left; }
