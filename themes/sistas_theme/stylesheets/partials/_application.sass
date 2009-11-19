@@ -4,12 +4,18 @@
 //html elements
 body
   background: #000 url("/images/stripe_bgd.png") 
+  :font-size 75%
 
 label
   display: block
 
 ul
   :padding 0px
+  li
+    :list-style none
+
+#doc
+  :width 800px
 
 .clear
   :clear both
@@ -30,9 +36,6 @@ ul
 #logo h1
   margin: 0px
 
-.border_right
-  :border-right 1px solid #000
-
 #NavBar
   :margin-top 2px
   :padding-top 2px
@@ -47,7 +50,6 @@ ul
       a 
         :color #FFFFFF
         :text-decoration none
-        :padding 0px 30px
 
 #explore
   :text-align center
@@ -80,29 +82,50 @@ ul
       :padding 8px 5px 0px 5px
       :border none
 
+.dashboard_nav
+  :-moz-border-radius 5px 
+  :-webkit-border-radius 5px 
+  ul
+    :border-top 1px solid
+      :color = !border_grey
+    li
+      :background-color #eee
+      :padding 5px 0px 0px 0px
+      :border
+        :width 1px 
+        :style solid
+        :color = !border_grey
+      :border-top none
+
 #bd
-  :margin 30px 0px 10px 0px
+  :margin 30px 0px 0px 0px
   :padding 0px 0px 10px 0px
   :background-color #FFF 
-  :-moz-border-radius 5px
-  :-webkit-border-radius 5px
+  :-moz-border-radius-topleft 5px 
+  :-webkit-border-top-left-radius 5px 
+  :-moz-border-radius-topright 5px 
+  :-webkit-border-top-right-radius 5px 
 
 .featured_writer
   :width 50%
   :float left
+  :padding 0px 0px 30px 0px
   .writer_avatar
     :width 100px
     :float left
   .writer_description
     :padding 0px 0px 0px 10px
-    :width 200px
+    :width 120px
     :float left
+
 #ft
-  :margin 10px 0px 10px 0px
+  :margin 0px 0px 10px 0px
   :padding 10px
-  :background-color #F6F6F6 
-  :-moz-border-radius 5px
-  :-webkit-border-radius 5px
+  :background-color #fff
+  :-moz-border-radius-bottomleft 5px 
+  :-webkit-border-bottom-left-radius 5px 
+  :-moz-border-radius-bottomright 5px 
+  :-webkit-border-bottom-right-radius 5px 
 
 #CommunityFooter
   :background-color #426D7A
@@ -118,14 +141,18 @@ ul
 
 ul.page
   :list-style none
+
+.flash_message
+  :position relative
+
 //user menu
 #user_login
   :width 200px
-  :background 
-    :color #fff
   :padding 20px 0px 0px 0px
   :margin-top 20px
   :text-align center
+  a
+    :color = !link_grey
 
 #user-menu
   :display none
@@ -163,5 +190,7 @@ h3.entry-title
   :padding 0px 0px 0px 0px
 
 //buttons
-span.button_span
-  :background-color #fff
+
+span.button_span < a
+  :color red
+
