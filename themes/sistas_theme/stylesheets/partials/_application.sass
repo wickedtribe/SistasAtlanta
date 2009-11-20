@@ -1,5 +1,6 @@
 !border_grey = #B1B1B1
 !link_grey = #5B5B5B
+!aqua_color = #426D7A
 
 //html elements
 body
@@ -25,7 +26,23 @@ ul
   :padding 10px
   :margin-top 10px
 
-
+//TODO remove the z-index from .notice and .warning
+.flash_message
+  :font-size 145%
+  :background-color = !aqua_color
+  :margin 30px auto
+  :padding 20px
+  :position absolute
+  :text-align center
+  :width 500px
+  :z-index 9999
+  .notice
+    :z-index 9
+  .warning
+    :z-index 9
+  a
+    :color = !border_grey
+    :border-bottom dotted
 //layout divs
 #background-container
   :background 
@@ -151,10 +168,12 @@ ul.page
   :padding 20px 0px 0px 0px
   :margin-top 20px
   :text-align center
+  h2
+    :margin-bottom 3px
   a
     :color = !link_grey
 
-#user-menu
+#user_menu
   :display none
   :background 
     :color #fff

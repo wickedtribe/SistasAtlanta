@@ -127,6 +127,11 @@ ul li { list-style: none; }
 
 .box { padding: 10px; margin-top: 10px; }
 
+.flash_message { font-size: 145%; background-color: #426d7a; margin: 30px auto; padding: 20px; position: absolute; text-align: center; width: 500px; z-index: 9999; }
+.flash_message .notice { z-index: 9; }
+.flash_message .warning { z-index: 9; }
+.flash_message a { color: #b1b1b1; border-bottom: dotted; }
+
 #background-container { background-image: url("/images/bgd.png"); background-repeat: repeat-x; background-color: none; }
 
 #logo h1 { margin: 0px; }
@@ -165,11 +170,12 @@ ul.page { list-style: none; }
 .flash_message { position: relative; }
 
 #user_login { width: 200px; padding: 20px 0px 0px 0px; margin-top: 20px; text-align: center; }
+#user_login h2 { margin-bottom: 3px; }
 #user_login a { color: #5b5b5b; }
 
-#user-menu { display: none; background-color: #fff; text-align: left; width: 200px; position: absolute; z-index: 999999; }
-#user-menu hr { display: none; }
-#user-menu li { list-style: none; }
+#user_menu { display: none; background-color: #fff; text-align: left; width: 200px; position: absolute; z-index: 999999; }
+#user_menu hr { display: none; }
+#user_menu li { list-style: none; }
 
 .recent_posts { height: 150px; overflow: hidden; }
 .recent_posts ul { list-style: none; padding: 0px; }

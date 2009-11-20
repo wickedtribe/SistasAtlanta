@@ -15,7 +15,7 @@
         %ul
           = render :partial => 'posts/homepage_post', :collection => @posts
       %h6.all= link_to :see_all_recent_posts.l, recent_path
-    -box :class => "alt" do 
+    -box :id => "featured_writers", :class => "alt" do 
       %h2
         Meet Our Featured Writers
       -@featured_writers.each do |user|    

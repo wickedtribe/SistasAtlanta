@@ -3,3 +3,14 @@
 window.onload = function(){
   $('a.button').wrapInner('<span class="button_span"></span>');
 }
+
+$(function  () {
+  $('#user_login').hover(
+    function  () {
+      $('#user_menu').show();
+    },
+    function  () {
+      $('#user_menu').hide();
+    }
+  );
+});
