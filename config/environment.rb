@@ -54,4 +54,4 @@ config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/community_engine/plugins"]
 end
  require "#{RAILS_ROOT}/vendor/plugins/community_engine/config/boot.rb"
  
- AppConfig.show_localization_keys_for_debugging = true if RAILS_ENV.eql?('development')
+ # AppConfig.show_localization_keys_for_debugging = true if RAILS_ENV.eql?('development')

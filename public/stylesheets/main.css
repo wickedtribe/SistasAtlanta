@@ -1,0 +1,15 @@
+body { background-color: #232323; }
+
+#doc3 { margin: 0px 100px 0px 100px; }
+
+#hd { border-top: none; }
+
+#bd { background-color: white; }
+
+#welcome .box { padding: 10px; margin: 0px; border-bottom: none; }
+
+#welcome .yui-u { margin: 0px; padding: 0px; }
+
+.box { margin: 10px; }
+
+.yui-u { margin: 0px 0px 0px 0px; }
