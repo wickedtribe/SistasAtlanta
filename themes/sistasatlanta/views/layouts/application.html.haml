@@ -55,7 +55,8 @@
       #bd
         = render :partial => "shared/messages"
         - if logged_in?
-          = render :partial => 'shared/explore'      
+          #explore
+            = render :partial => 'shared/explore'      
         = @content_for_layout
                             
       #ft
@@ -88,3 +89,5 @@
 
         %p
           = :community_tagline.l
+:javascript
+  $("#explore ul").removeClass("list checks");

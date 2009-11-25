@@ -10,6 +10,12 @@
         =:recent_posts.l
       = render :partial => 'posts/post', :collection => @posts
       %h6.all= link_to :see_all_recent_posts.l, recent_path
+    -box :class => "alt" do 
+      %h3
+        =:featured_writer.l
+      -@featured_writers.each do |user|
+        =render :partial => "users/sidebar_user", :locals => {:user => user}
+  
 .yui-b  
   -box :class => "alt" do 
     %h3
@@ -20,12 +26,6 @@
         =render :partial => 'posts/sidebar_post', :locals => {:post => post}
     %h6.all
       %a{:href=>popular_url}= :see_all.l
-
-  -box :class => "alt" do 
-    %h3
-      =:featured_writer.l
-    -@featured_writers.each do |user|
-      =render :partial => "users/sidebar_user", :locals => {:user => user}
 
   -box :class => "alt" do 
     %h3= :active_users.l

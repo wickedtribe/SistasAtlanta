@@ -1,11 +1,4 @@
-= javascript_include_tag "application"
-= javascript_include_tag "prototype", :plugin => "community_engine"
-= javascript_include_tag "effects", :plugin => "community_engine"	
-= javascript_include_tag "event-selectors", :plugin => "community_engine" 		
-
-= javascript_include_tag "controls", :plugin => "community_engine" unless current_page?({:controller => 'application', :action => 'index'})
-
-= javascript_include_tag "dragdrop", :plugin => "community_engine" if @controller.controller_name.eql?('users') && %w(welcome_about edit update).include?(@controller.action_name)
+= javascript_include_tag :defaults
 
 = javascript_include_tag "application", :plugin => "community_engine"		
 
