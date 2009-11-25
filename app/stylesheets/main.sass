@@ -1,14 +1,57 @@
 @import yui/modules/grids.sass
 @import yui/modules/fonts.sass
+@import compass/utilities.sass
 
 body
-  :background-color #232323
+  :background
+    :color #2a2a2a
+    :image = image_url("button_bgd.png")
+    :repeat repeat-x
+
+.hidden_label
+  :display none
 
 #doc3
-  :margin 0px 100px 0px 100px
+  :margin 0px 50px 0px 50px
+
+#top_menu
+  :color #fff
+  :height 35px
+  :padding 6px 0px 0px 0px
+  :margin 0px 10px 0px 10px
+  :text-align right
+  :background
+    :color transparent
+    :image = image_url("button_border_dark.png")
+    :repeat no-repeat
+    :position 100% 8px
+  a
+    +unstyled-link
+    :background transparent url("../images/button_border_dark.png") no-repeat top left
+    :display inline-block
+    :height 25px
+    :margin 3px 0px 0px 0px
+    :padding 7px 20px 0px 20px
+  ul
+    +horizontal-list(0px)
+    :background
+      :color transparent
+      :image = image_url("button_border_dark.png")
+      :repeat no-repeat
+      :position 0% 8px
+
+  ul
+    :display inline
+
+form#googlesearch
+  :float left
+  :margin-right 10px
+  input[type=text]
+    :margin-top 7px
 
 #hd
   :border-top none
+  :background-color #407683
 
 #bd
   :background-color white

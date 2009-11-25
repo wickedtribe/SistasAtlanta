@@ -1,3 +1,4 @@
 en:
   community_tagline: "A Premier Women's Social Group"
   whats_fresh: "Recent Activity"
+  logged_in: "<span class='hidden_label'>Logged In:</span>"
