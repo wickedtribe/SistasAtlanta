@@ -20,6 +20,7 @@ module BaseHelper
   end
   
   def resize_img(classname, width=90, height=135)
+    # todo replace with jquery resize image
     "<style>
       .#{classname} {
         max-width: #{width}px;

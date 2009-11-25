@@ -1,0 +1,29 @@
+_user_menu.haml
+  javascript show #user-menu-tip
+  
+_clipping.haml
+  javascript fade effect
+  
+_meta.haml
+  javascript pulsate effect
+  
+_comment_form.haml
+  javascript comment loading spinner
+  
+create.js.rjs
+  javascript highlight effect
+  
+_show_image_list.haml
+  javascript invoke("observe", 'click', select_thumb)
+  
+_poll_ui.haml
+  javascript add 'loading' class
+  
+_send_to_friend.html.erb
+  javascript innerHTML error update
+  
+_location_chooser.haml
+  javascript loading img
+  
+_messages.haml
+  javascript flash messages
