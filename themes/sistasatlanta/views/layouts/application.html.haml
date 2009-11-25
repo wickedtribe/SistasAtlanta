@@ -54,7 +54,8 @@
             
       #bd
         = render :partial => "shared/messages"
-                  
+        - if logged_in?
+          = render :partial => 'shared/explore'      
         = @content_for_layout
                             
       #ft

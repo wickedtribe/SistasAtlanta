@@ -1,4 +1,11 @@
 #hd
-  %a{:href=>application_url, :title=>"#{AppConfig.community_name}"}
-    %img
+  .yui-g
+    .yui-u.first
+      %a{:href=>application_url, :title=>"#{AppConfig.community_name}"}=image_tag("logo.png")
+    .yui-u
+      -box do
+        %h3
+          =:get_started_banner.l :site=>AppConfig.community_name
+        %p
+          =:homepage_banner_msg.l
 / header
