@@ -73,6 +73,122 @@ var Cookie = {
 	}	
 }
 
-// Clear text in forms
+CommunityEngine.ToggleInput = Class.create();
+Object.extend(Object.extend(CommunityEngine.ToggleInput.prototype, Abstract.prototype), {
+	initialize: function(element, text){
+		this.element = $(element);
+		this.text = text;
+		Event.observe(this.element, 'focus', this.toggleInput.bindAsEventListener(this) );
+		Event.observe(this.element, 'blur', this.toggleInput.bindAsEventListener(this) );						
+	},
+	
+	toggleInput: function(event){
+		if (event.type == 'focus'){
+			this.element.value = (this.element.value == this.text) ? '' : this.element.value;
+		} else if (event.type == 'blur'){
+			this.element.value = (this.element.value == '') ? this.text : this.element.value;								
+		}
+	}
+	
+});
 
-//Feature rotator
+CommunityEngine.FeatureRotator = Class.create();
+Object.extend(Object.extend(CommunityEngine.FeatureRotator.prototype, Abstract.prototype), {
+	initialize: function(element, features, options){
+		this.timer = null;
+	    this.element = $(element);
+	    this.options = Object.extend({
+	    	frequency: 8,
+			transition: true
+		}, options || {});
+		
+		this.counter = 0;
+		this.features = features;
+		this.id = "#" + this.element.id;
+		
+		if (this.options.debug){
+			console.log("this.element %d", this.element)
+			console.log("this.id: %d", this.id)
+			console.log("this.features %d",this.features)
+		}
+		
+		this.start();
+	},
+	
+	stop: function()
+	{
+		clearTimeout(this.timer);
+	},
+	
+	start: function()
+	{
+		this.periodicallyUpdate();
+	},
+	
+	periodicallyUpdate: function()
+	{ 
+		
+		this.update();	
+		if (this.features.length == 1)
+		{
+			return;
+		}
+		if (this.timer != null)
+		{
+			clearTimeout(this.timer);		
+		}
+		this.timer = setTimeout(this.periodicallyUpdate.bind(this), this.options.frequency*1000);		
+	},
+
+	currentFeature: function()
+	{
+	    return this.features[ Math.abs(this.counter) % this.features.length ];
+	},	
+
+	fadeInImage: function(){
+		Element.removeClassName(this.new_feature, 'hidden')
+		Element.addClassName(this.new_feature, 'showing')	
+		Element.removeClassName(this.current_feature, 'showing')
+		Element.addClassName(this.current_feature, 'hidden')		
+		new Effect.Opacity(this.current_feature, {duration:0.1, from:0, to:1 });		
+	},
+	
+	transitionImage: function(){
+		new Effect.Opacity(this.current_feature, {duration:0.9, from:1.0, to:0.01, afterFinish: this.fadeInImage.bind(this) });
+	},
+
+	update: function()
+	{
+		current = $$('.homepage_features .showing')[0]
+		this.current_feature = current;
+
+		currentlyAt = this.currentFeature();	
+		new_current = $('feature_'+currentlyAt[0])
+		this.new_feature = new_current;
+		this.new_feature_bg_src = currentlyAt[1];
+		
+		if (currentlyAt && (this.counter != 0) ) {
+			if (this.options.transition) {
+				this.transitionImage()
+			} else {
+					if (this.current_feature){
+						Element.removeClassName(this.current_feature, 'showing')
+						Element.addClassName(this.current_feature, 'hidden')
+					}
+					Element.removeClassName(this.new_feature, 'hidden')
+					Element.addClassName(this.new_feature, 'showing')	
+			}
+		
+			if (this.options.debug) {
+				console.log("currently at: %d", currentlyAt );	
+			}
+		} else {
+			if (this.options.debug) {
+				console.log("Debug: current_feature is nil");	
+			}			
+		}
+    ++this.counter;				
+	}	
+});
+
+

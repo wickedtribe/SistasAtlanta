@@ -14,7 +14,7 @@
       = auto_discovery_link_tag(:rss, @rss_url, {:title => @rss_title})
     
   %body
-    #doc3{:class => "yui-t#{@sidebar_left ? 3 : 6}"}
+    #doc4{:class => "yui-t#{@sidebar_left ? 3 : 7}"}
       #top_menu
         / SiteSearch Google 
         %form{:method=>"get", :action=>"http://www.google.com/custom", :target=>"_top", :id => "googlesearch"}
@@ -89,5 +89,3 @@
 
         %p
           = :community_tagline.l
-:javascript
-  $("#explore ul").removeClass("list checks");

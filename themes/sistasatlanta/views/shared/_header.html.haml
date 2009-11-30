@@ -1,11 +1,11 @@
 #hd
   .yui-g
-    .yui-u.first
-      %a{:href=>application_url, :title=>"#{AppConfig.community_name}"}=image_tag("logo.png")
+    #logo.yui-u.first
+      %h1
+        %a{:href=>application_url, :title=>"#{AppConfig.community_name}"}=image_tag("sa_logo.png", :alt => "logo")
     .yui-u
       -box do
-        %h3
+        %strong
           =:get_started_banner.l :site=>AppConfig.community_name
         %p
           =:homepage_banner_msg.l
-/ header
