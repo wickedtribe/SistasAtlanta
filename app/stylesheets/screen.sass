@@ -1,0 +1,35 @@
+@import blueprint/reset.sass
+@import partials/base.sass
+@import blueprint
+@import compass/utilities.sass
++blueprint
+
+body
+  +blueprint-debug
+  ul
+    +no-bullets
+    margin: 0
+
+#doc4
+  +container
+
+#top_menu
+  +column(24)
+  ul
+    +horizontal-list(4px)
+
+#bd
+  +column(18)
+  :background-color blue
+
+#ft
+  +column(6, true)
+  :background-color blue
+
+#yui-main
+  .yui-b
+    +column(13)
+
+.yui-b
+  +column(5,true)
+  :background-color #379136

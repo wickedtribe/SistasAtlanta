@@ -6,9 +6,8 @@
   = javascript_include_tag 'swfupload', :plugin => "community_engine"
   = javascript_include_tag 'uploader', :plugin => "community_engine"
 
-= stylesheet_link_tag 'screen', :plugin => :community_engine
-= stylesheet_link_tag 'main'
-= stylesheet_link_tag 'print', :plugin => :community_engine, :media => 'print'
+= stylesheet_link_tag 'screen'
+//= stylesheet_link_tag 'print', :plugin => :community_engine, :media => 'print'
 
 = javascript_include_tiny_mce_if_used
 = tiny_mce if using_tiny_mce?
