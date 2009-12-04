@@ -4,7 +4,7 @@
       %h1
         %a{:href=>application_url, :title=>"#{AppConfig.community_name}"}=image_tag("sa_logo.png", :alt => "logo")
     .yui-u
-      -box do
+      -box :class => "header_msg" do
         %strong
           =:get_started_banner.l :site=>AppConfig.community_name
         %p

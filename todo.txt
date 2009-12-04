@@ -25,5 +25,6 @@ _send_to_friend.html.erb
 _location_chooser.haml
   javascript loading img
   
+DONE// 
 _messages.haml
   javascript flash messages

@@ -15,8 +15,17 @@
     
   %body
     #doc4{:class => "yui-t#{@sidebar_left ? 3 : 7}"}
+      = render :partial => "shared/header"
       #top_menu
-        / SiteSearch Google 
+        %ul
+          - Category.find(:all).each do |c|
+            = topnav_tab c.name, {:url => category_path(c), :section => c.name}
+          = topnav_tab :forums.l, { :url => forums_path, :section => 'forums' }
+          = topnav_tab :popular.l, { :url => popular_path, :section => 'popular' }
+          = topnav_tab :people.l, { :url => users_path, :section => 'users' }
+          - if current_user 
+            = topnav_tab :my_profile.l, { :url => user_path(current_user), :section => 'my_profile'}
+        
         %form{:method=>"get", :action=>"http://www.google.com/custom", :target=>"_top", :id => "googlesearch"}
           %input{ :type=>"hidden", :name=>"domains", :value=>"#{application_url}"}
           %label{ :for=>"search",  :style=>"display: none"}
@@ -30,16 +39,6 @@
           %input{ :type=>"hidden", :name=>"oe", :value=>"ISO-8859-1"}
           %input{ :type=>"hidden", :name=>"cof", :value=>"GALT:#008000;GL:1;DIV:#FFFFFF;VLC:663399;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:90;S:http://#{application_url};FORID:1"}
           %input{ :type=>"hidden", :name=>"hl", :value=>"en"}
-      
-        %ul
-          - Category.find(:all).each do |c|
-            = topnav_tab c.name, {:url => category_path(c), :section => c.name}
-          = topnav_tab :forums.l, { :url => forums_path, :section => 'forums' }
-          = topnav_tab :popular.l, { :url => popular_path, :section => 'popular' }
-          = topnav_tab :people.l, { :url => users_path, :section => 'users' }
-          - if current_user 
-            = topnav_tab :my_profile.l, { :url => user_path(current_user), :section => 'my_profile'}
-
         - if logged_in?
           = render :partial => 'shared/user_menu'
           - if current_user.unread_messages?
@@ -48,15 +47,9 @@
         - else
           =link_to :log_in.l, login_path
           =link_to :sign_up.l, signup_path
-      
-      
-      = render :partial => "shared/header"
             
       #bd
         = render :partial => "shared/messages"
-        - if logged_in?
-          #explore
-            = render :partial => 'shared/explore'      
         = @content_for_layout
                             
       #ft
@@ -68,24 +61,24 @@
           %script{:type=>"text/javascript"}
             = remote_function(:update => "footer_content", :url => { :controller => 'base', :action => 'footer_content' })
 
-      #CommunityFooter
-        %ul
-          %li
-            %a{:href=>application_url, :title=>"#{AppConfig.community_name} " + :home.l}= :home.l
-          - if !logged_in?
-            %li
-              = link_to :log_in.l , login_path 
-          - else
-            %li
-              %a{:href=>logout_url, :title=>:log_out_of_your.l + " #{AppConfig.community_name} " + :account.l}
-                =:log_out.l
+#CommunityFooter
+  %ul
+    %li
+      %a{:href=>application_url, :title=>"#{AppConfig.community_name} " + :home.l}= :home.l
+    - if !logged_in?
+      %li
+        = link_to :log_in.l , login_path 
+    - else
+      %li
+        %a{:href=>logout_url, :title=>:log_out_of_your.l + " #{AppConfig.community_name} " + :account.l}
+          =:log_out.l
 
-          - Page.find(:all).each do |page|
-            - if (logged_in? || page.page_public)
-              %li= link_to page.title, pages_path(page) 
-              
-          - if @rss_title && @rss_url
-            %li#rss= link_to :rss.l, @rss_url, {:title => @rss_title}
+    - Page.find(:all).each do |page|
+      - if (logged_in? || page.page_public)
+        %li= link_to page.title, pages_path(page) 
+        
+    - if @rss_title && @rss_url
+      %li#rss= link_to :rss.l, @rss_url, {:title => @rss_title}
 
-        %p
-          = :community_tagline.l
+  %p
+    = :community_tagline.l

@@ -1,0 +1,10 @@
+---
+  :output:
+    User:
+      :options:
+        :fields:
+          - id
+          - login
+          - email
+          - birthday
+          - activated_at

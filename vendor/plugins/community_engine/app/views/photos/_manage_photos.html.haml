@@ -9,6 +9,6 @@
     function remote_paginate(event){
       $('dynamic_images_list').update("Loading images...<br /><img src='/plugin_assets/community_engine/images/spinner.gif'>");
       element = Event.element(event);
-      new Ajax.Request(element.href, {asynchronous:true, evalScripts:true, method:'get'});
+      $.Request(element.href, {asynchronous:true, evalScripts:true, method:'get'});
       Event.stop(event);
     }

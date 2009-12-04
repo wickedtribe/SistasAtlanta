@@ -19,6 +19,6 @@
           
   %script{:type => 'text/javascript'}
     :plain
-      $$('.thumbs a').invoke("observe", 'click', select_thumb)
+      $('.thumbs a').invoke("observe", 'click', select_thumb)
 - else
   = :no_images_uploaded_yet.l

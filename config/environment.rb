@@ -20,6 +20,7 @@ config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/community_engine/plugins"]
   config.gem 'hpricot', :lib => 'hpricot'
   config.gem 'rmagick', :lib => 'RMagick'
   config.gem 'desert', :lib => 'desert'
+  config.gem 'hirb'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -53,5 +54,5 @@ config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/community_engine/plugins"]
   # config.i18n.default_locale = :de
 end
  require "#{RAILS_ROOT}/vendor/plugins/community_engine/config/boot.rb"
- 
+ Hirb::View.enable
  # AppConfig.show_localization_keys_for_debugging = true if RAILS_ENV.eql?('development')

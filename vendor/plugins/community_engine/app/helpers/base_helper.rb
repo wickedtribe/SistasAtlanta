@@ -29,7 +29,7 @@ module BaseHelper
     <script type=\"text/javascript\">
     	//<![CDATA[
         Event.observe(window, 'load', function(){
-      		$$('img.#{classname}').each(function(image){
+      		$('img.#{classname}').each(function(image){
       			CommunityEngine.resize_image(image, {max_width: #{width}, max_height:#{height}});
       		});          
         }, false);
@@ -183,7 +183,7 @@ module BaseHelper
 		html = "<span class='friend_request' id='friend_request_#{user.id}'>"
     html += link_to_remote :request_friendship.l,
 				{:update => "friend_request_#{user.id}",
-					:loading => "$$('span#friend_request_#{user.id} span.spinner')[0].show(); $$('span#friend_request_#{user.id} a.add_friend_btn')[0].hide()", 
+					:loading => "$('span#friend_request_#{user.id} span.spinner').show(); $('span#friend_request_#{user.id} a.add_friend_btn').hide()", 
 					:complete => visual_effect(:highlight, "friend_request_#{user.id}", :duration => 1),
           500 => "alert('"+:sorry_there_was_an_error_requesting_friendship.l+"')",
 					:url => hash_for_user_friendships_url(:user_id => current_user.id, :friend_id => user.id), 
