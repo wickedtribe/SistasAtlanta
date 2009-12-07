@@ -4,20 +4,6 @@
 @import compass/utilities.sass
 @import compass/layout.sass
 +blueprint
-
-=standard-link
-  +unstyled-link
-  :color = !aqua
-  :cursor pointer
-
-=aqua-link
-  :font-weight bold
-  +unstyled-link
-  :color = !aqua
-  :cursor pointer
-
-=lightgrey-link
-
 +sticky-footer(18px, "#doc4", "#ft", "#CommunityFooter")
 
 body
@@ -28,14 +14,18 @@ body
     margin: 0
 
 h3
-  :background-color = !darkgrey
+  :background
+    :color = !darkgrey
+    :image = image_url("title_corner.png")
+    :position top right
+    :repeat no-repeat
   :color = !offwhite
   :font-variant small-caps
   :padding 3px 0px 5px 8px
-  :margin 0px 0px 5px 0px
+  :margin 0px 0px 8px 0px
 
 a
-  +standard-link
+  +link(!aqua)
 
 #user-menu-tip
   :display none
@@ -48,31 +38,20 @@ a
 
 #top_menu
   +column(24)
+  :background-color = !darkgrey
+  :margin-bottom 5px
   ul
-    :background-color = !darkgrey
     +horizontal-list(0px)
-    +column(16)
     li
       a
-        +unstyled-link
         :font-variant small-caps
-        :display inline-block
-        :color = !white
-        :padding 8px 0px 10px 10px
-        :width 100px
-        :border-right 1px solid #fff
-        :cursor pointer
-      a:hover
-        :color = !aqua
+        +inline-block
+        :padding 8px 60px 10px 10px
+        :border-right 1px solid 
+          :color = !white
   form
-    :text-align right
-    +column(8, true)
-    :background-color = !darkgrey
-    input
-      :margin-right 1em
-      :border 1px solid
-        :color = !offwhite
-        
+    :display none
+
 
 #hd
   h1
@@ -84,91 +63,18 @@ a
   :margin-bottom 1em
   +column(24)
   .yui-u
-    +column(12, true)
+    +column(10, true)
     .box.header_msg
       :padding-top 0.5em
       :font-size 135%
-  .yui-u.first
-    +column(12)
+    a
+      +link(!offwhite, !darkgrey)
 
 #bd
   +column(20)
-  .hfeed
-    +column(12)
-    .hentry
-      +column(12)
-      h4.entry-title
-        :margin 0
-        :padding 0
-        :background-color = !lightgrey
-        a
-          +unstyled-link
-          :color = !white
-          :padding 10px
-          :display inline-block
-          :cursor pointer
-      .vcard.author
-        :background-color = !lightgrey
-        ul
-          +horizontal-list(4px)
-          li
-            a
-              +unstyled-link
-              :cursor pointer
-              :color = !white
-  .vcard.sidebar
-    :background-color #BCD1E1
-    p
-      :padding-bottom 0px
-      :margin-bottom 3px
-    .name
-      a
-        +unstyled-link
-        :cursor pointer
-        :color = !white
-        :background-color = !lightgrey
-        :display inline-block
-        :width 140px
-        :padding 5px 0px 5px 10px
-        :margin-bottom 5px
-    .info
-      img
-        +pull(1)
-        :margin 0px 10px 3px 0px
-        :padding 0
-        
-#yui-main
-  .yui-b
-    +column(20, true)
-    .yui-gd
-      +column(20, true)
-      .yui-u.first
-        +column(4)
-        .box.explore
-          a
-            :display inline-block
-            :width 180px
-            +unstyled-link
-            :color = !offwhite
-            :background-color = !lightgrey
-            :margin-bottom 5px
-            :padding 3px 0px 5px 10px
-      .yui-u
-        +column(16, last)
-        
-        .yui-b.last
-          +column(4, last)
-          .alt.box
-          .alt.box.whats_hot
-            :background-color transparent
-            a
-              +aqua-link
-            
-        
 
 #ft
   +column(4, true)
-
 
 #CommunityFooter
   :background-color = !darkgrey
@@ -179,28 +85,3 @@ a
     :margin 0 auto
     :display inline-block
     +horizontal-list(4px)
-
-
-//Tag Cloud
-.nube1 
-  font-size: 1.0em 
-
-.nube2 
-  font-size: 1.3em 
-
-.nube3 
-  font-size: 1.4em 
-
-.nube4 
-  font-size: 1.5em 
-
-.nube5 
-  font-size: 1.6em 
-
-.nube6 
-  font-size: 1.8em 
-
-.selected 
-  color: #268999 
-
-

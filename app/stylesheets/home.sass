@@ -1,0 +1,240 @@
+@import blueprint/reset.sass
+@import partials/base.sass
+@import blueprint
+@import compass/utilities.sass
+@import compass/layout.sass
++blueprint
+
++sticky-footer(18px, "#doc4", "#ft", "#CommunityFooter")
+
+body
+  :background-color #212121
+  +blueprint-debug
+  ul
+    +no-bullets
+    margin: 0
+
+h3
+  :background
+    :color = !darkgrey
+    :image = image_url("title_corner.png")
+    :position top right
+    :repeat no-repeat
+  :color = !offwhite
+  :font-variant small-caps
+  :padding 3px 0px 5px 8px
+  :margin 0px 0px 8px 0px
+
+a
+  +link(!aqua)
+
+#user-menu-tip
+  :display none
+
+#doc4
+  :background-color = !white
+  +container
+  :padding 10px
+//  +showgrid
+
+#top_menu
+  +column(24)
+  :background-color = !darkgrey
+  :margin-bottom 5px
+  ul
+    +horizontal-list(0px)
+    li
+      a
+        :font-variant small-caps
+        +inline-block
+        :padding 8px 60px 10px 10px
+        :border-right 1px solid 
+          :color = !white
+  form
+    :display none
+    :text-align right
+    :background-color = !darkgrey
+    input
+      :margin-right 1em
+      :border 2px solid
+        :color =!white
+        
+
+#hd
+  h1
+    :margin 0
+    :padding 0.5em 0
+    a
+      :padding-left 1em
+  :background-color = !aqua
+  :margin-bottom 1em
+  +column(24)
+  .yui-u
+    +column(10, true)
+    .box.header_msg
+      :padding-top 0.5em
+      :font-size 135%
+    a
+      +link(!offwhite, !darkgrey)
+
+#bd
+  +column(20)
+  .hfeed
+    +column(10)
+    .entry-header
+      :background-color = !lightgrey
+      :height 58px
+      h2.entry-title
+        :margin 0
+        :padding 0px 0px 0px 16px
+        a
+          +link(!offwhite, !white)
+          :display inline-block
+    .entry-content
+      :padding-top 8px
+    .entry-photo
+      :padding-top 8px
+    .hentry
+      +column(10)
+      img
+        +pull(1)
+        :margin 4px 8px 4px 0px
+        :padding 0
+      .vcard.author
+        :background-color = !lightgrey
+        ul
+          +horizontal-list(4px)
+          li
+            a
+              +unstyled-link
+              :cursor pointer
+              :color = !white
+  .vcard.sidebar
+    :background-color = !lightaqua
+    p
+      :padding-bottom 0px
+      :margin-bottom 3px
+    .name
+      a
+        +unstyled-link
+        :cursor pointer
+        :color = !white
+        :background-color = !lightgrey
+        :display inline-block
+        :width 140px
+        :padding 4px 0px 4px 10px
+        :margin-bottom 8px
+    .info
+      img
+        +pull(1)
+        :margin 4px 8px 4px 0px
+        :padding 0
+        
+#yui-main
+  .yui-b
+    +column(20, true)
+    .yui-gd
+      +column(20, true)
+      .yui-u.first
+        +column(6)
+        .box.explore
+          a
+            :display inline-block
+            :width 140px
+            +unstyled-link
+            :color = !offwhite
+            :background-color = !lightgrey
+            :margin-bottom 5px
+            :padding 3px 0px 5px 10px
+      .yui-u
+        +column(14, last)
+        
+        .yui-b.last
+          +column(4, last)
+          .alt.box
+          .alt.box.whats_hot
+            :background-color transparent
+            a
+              +link(!aqua, #000)
+              :font-weight bold 
+
+//Recent Activity Styles
+.activity
+  :background-color = !lightaqua
+  :background-image url(/plugin_assets/community_engine/images/icons/activity_default.png)
+  :background-position left center
+  :background-repeat no-repeat
+  :margin-bottom 5px
+  a
+    +link(!darkgrey, #000)
+    :background-color = !lightgrey
+    :padding 0px 0px 0px 5px
+    :width 145px
+    :display inline-block
+  a.activity_photo
+    :background-color transparent
+    :display none
+  .type
+    :padding-left 20px
+  .date
+    :padding-left 20px
+
+.activity.photo
+  :background-image url(/plugin_assets/community_engine/images/icons/picture.png)
+  :background-position left center
+.activity.comment
+  :background-image url(/plugin_assets/community_engine/images/icons/comment.png)
+  :background-position left center
+.activity.clipping 
+  :background-image url(/plugin_assets/community_engine/images/icons/book.png)
+  :background-position left center
+.activity.updated_profile
+  :background-image url(/plugin_assets/community_engine/images/icons/user_edit.png)
+  :background-position left center
+.activity.favorite
+  :background-image url(/plugin_assets/community_engine/images/icons/heart_add.png)
+  :background-position left center
+.activity.post.sb_post.topic
+  :background-image url(/plugin_assets/community_engine/images/icons/post.png)
+  :background-position left center
+.activity.event
+  :background-image url(/plugin_assets/community_engine/images/icons/date.png)
+  :background-position left center
+
+// Footer Styles
+#ft
+  +column(4, true)
+
+
+#CommunityFooter
+  :background-color = !darkgrey
+  :text-align center
+  +container
+  ul
+    :width 300px
+    :margin 0 auto
+    :display inline-block
+    +horizontal-list(4px)
+
+
+//Tag Cloud
+.nube1 
+  font-size: 1.0em 
+
+.nube2 
+  font-size: 1.3em 
+
+.nube3 
+  font-size: 1.4em 
+
+.nube4 
+  font-size: 1.5em 
+
+.nube5 
+  font-size: 1.6em 
+
+.nube6 
+  font-size: 1.8em 
+
+.selected 
+  color: #268999 

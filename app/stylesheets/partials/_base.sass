@@ -2,7 +2,7 @@
 // Feel free to delete these if you want keep the defaults:
 
 !blueprint_grid_columns = 24
-!blueprint_container_size = 950px
+!blueprint_container_size = 990px
 !blueprint_grid_margin  = 10px
 
 // Use this to calculate the width based on the total width.
@@ -14,3 +14,9 @@
 !lightgrey = #5E5E5E
 !offwhite = #EDEDED
 !aqua = #506F7E
+!lightaqua = #BCD1E1
+
+=link(!link_color = #FFF [,!link_hover = !link_color, !link_active = !link_color, !link_visited = !link_color, !link_focus = #FFF])
+  +unstyled-link
+  +link-colors(!link_color, !link_hover, !link_active, !link_visited, !link_focus)
+  :cursor pointer

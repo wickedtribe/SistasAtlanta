@@ -1,9 +1,9 @@
 .hentry
-  %h4.entry-title{:id=>"post_#{ post.id}"}
-    = link_to post.title, user_post_path(post.user, post), :rel => 'bookmark'
+  .entry-header
+    %h2.entry-title{:id=>"post_#{ post.id}"}
+      = link_to post.title, user_post_path(post.user, post), :rel => 'bookmark'
 
   .vcard.author
-
     %ul
       %li.fn=link_to post.user.login, user_path(post.user)
       %li.update
@@ -17,11 +17,11 @@
       - if current_user and current_user.can_request_friendship_with(post.user)
         %li.addfriend= add_friend_link(post.user)
   .entry-photo
-  %a{:href=>"#{user_post_path(post.user, post)}", :class=>"photo", :rel=>"bookmark"}
-    =image_tag((post.first_image_in_body || post.user.avatar_photo_url(:thumb)), :alt=>"", :width=>"50", :height=>"50")
+    %a{:href=>"#{user_post_path(post.user, post)}", :class=>"photo", :rel=>"bookmark"}
+      =image_tag((post.first_image_in_body || post.user.avatar_photo_url), :alt=>"", :width=>"125", :height=>"125")
   
   .entry-content
-    = truncate_words(post.post, 50, '...' )
+    = truncate_words(post.post, 100, '...' )
     
     = render :partial => 'polls/excerpt', :locals => {:poll => post.poll} if post.poll
     

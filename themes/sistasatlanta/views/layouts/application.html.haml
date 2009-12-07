@@ -12,7 +12,8 @@
     = render :partial => "shared/scripts_and_styles"
     - if @rss_title && @rss_url
       = auto_discovery_link_tag(:rss, @rss_url, {:title => @rss_title})
-    
+
+    = yield :head    
   %body
     #doc4{:class => "yui-t#{@sidebar_left ? 3 : 7}"}
       = render :partial => "shared/header"
@@ -25,7 +26,14 @@
           = topnav_tab :people.l, { :url => users_path, :section => 'users' }
           - if current_user 
             = topnav_tab :my_profile.l, { :url => user_path(current_user), :section => 'my_profile'}
-        
+          - if logged_in?
+            = render :partial => 'shared/user_menu'
+            - if current_user.unread_messages?
+              = link_to pluralize(current_user.unread_message_count, 'unread message'), user_messages_path(current_user)
+          - else
+            =link_to :log_in.l, login_path
+            =link_to :sign_up.l, signup_path
+
         %form{:method=>"get", :action=>"http://www.google.com/custom", :target=>"_top", :id => "googlesearch"}
           %input{ :type=>"hidden", :name=>"domains", :value=>"#{application_url}"}
           %label{ :for=>"search",  :style=>"display: none"}
@@ -39,14 +47,6 @@
           %input{ :type=>"hidden", :name=>"oe", :value=>"ISO-8859-1"}
           %input{ :type=>"hidden", :name=>"cof", :value=>"GALT:#008000;GL:1;DIV:#FFFFFF;VLC:663399;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:90;S:http://#{application_url};FORID:1"}
           %input{ :type=>"hidden", :name=>"hl", :value=>"en"}
-        - if logged_in?
-          = render :partial => 'shared/user_menu'
-          - if current_user.unread_messages?
-            %h2#newmail
-              = link_to pluralize(current_user.unread_message_count, 'unread message'), user_messages_path(current_user)
-        - else
-          =link_to :log_in.l, login_path
-          =link_to :sign_up.l, signup_path
             
       #bd
         = render :partial => "shared/messages"

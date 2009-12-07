@@ -1,5 +1,7 @@
 - @meta = { :description => AppConfig.meta_description, :keywords => AppConfig.meta_keywords, :robots => AppConfig.robots_meta_list_content }
 
+-content_for :head do
+  = stylesheet_link_tag 'home'
 //-unless logged_in?
 //  =render :partial => 'base/homepage_banner_message'
 
@@ -41,5 +43,3 @@
             %h3= :active_users.l
             -@active_users.each do |user|    
               =render :partial => "users/sidebar_user", :locals => {:user => user}      
-
-
